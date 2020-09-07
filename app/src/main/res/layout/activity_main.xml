@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="androidx.core.content.ContextCompat" />
+        <variable
+            name="viewModel"
+            type="com.ch.mymvvm.ui.activity.main.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBg">
+
+
+        <LinearLayout
+            android:id="@+id/tab_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                android:id="@+id/l_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.lHomeOnClickCommand}">
+
+                <ImageView
+                    android:id="@+id/img_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@{ContextCompat.getDrawable(context, viewModel.icon)}" />
+
+                <TextView
+                    android:id="@+id/nav_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:textColor="@{ContextCompat.getColor(context, viewModel.color)}"
+                    android:text="首页"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.lMessageOnClickCommand}">
+
+                <ImageView
+                    android:id="@+id/img_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@{ContextCompat.getDrawable(context, viewModel.icon1)}" />
+
+                <TextView
+                    android:id="@+id/nav_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textColor="@{ContextCompat.getColor(context, viewModel.color1)}"
+                    android:text="消息"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l_conference"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.lConferenceOnClickCommand}">
+
+                <ImageView
+                    android:id="@+id/img_conference"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@{ContextCompat.getDrawable(context, viewModel.icon2)}" />
+
+                <TextView
+                    android:id="@+id/nav_conference"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textColor="@{ContextCompat.getColor(context, viewModel.color2)}"
+                    android:text="设置"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l_mine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                binding:onClickCommand="@{viewModel.lMineOnClickCommand}">
+
+                <ImageView
+                    android:id="@+id/img_mine"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@{ContextCompat.getDrawable(context, viewModel.icon3)}" />
+
+                <TextView
+                    android:id="@+id/nav_mine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textColor="@{ContextCompat.getColor(context, viewModel.color3)}"
+                    android:text="我的"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ScrollView
+            android:id="@+id/scr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tab_menu"
+            android:background="@color/colorBg"
+            android:fillViewport="true">
+
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"></FrameLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>
